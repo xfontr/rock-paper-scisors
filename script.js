@@ -36,35 +36,37 @@ if (computerSelection === playerSelection) {
     playerWon = 0
     return "It's a draw!"
 } else if (computerSelection === "rock" && playerSelection === "paper") {
-    playerWon = true
+    playerWon = 1
     return "Your paper beats computer's rock! You won."
 } else if (computerSelection === "rock" && playerSelection === "scisors") {
-    playerWon = false
+    playerWon = 2
     return "Your scisors got destroyed by computer's rock! You lost."
 } else if (computerSelection === "paper" && playerSelection === "rock") {
-    playerWon = false
+    playerWon = 2
     return "Your rock couldn't resist the power of computer's paper. You lost!"
 } else if (computerSelection === "paper" && playerSelection === "scisors") {
-    playerWon = true
+    playerWon = 1
     return "Your scisors obliterated computer's paper! You won."
 } else if (computerSelection === "scisors" && playerSelection === "rock") {
-    playerWon = true
+    playerWon = 1
     return "Your rock beats computer's scisors. You won!"
 } else if (computerSelection === "scisors" && playerSelection === "paper") {
-    playerWon = false
+    playerWon = 2
     return "Your paper got cut real bad by computer's scisors. You lost!"
 }
 
 }
 
 function winCount() {
-    if (playerWon == true) {
-        wins[0] += 1
-        } else if (playerWon == false) {
-            wins[1] += 1
-        } else if (playerWon == 0) {
-            wins[2] += 1
-        }
+
+if (playerWon == 1) { //we win
+    wins[0] += 1
+} else if (playerWon == 2) { //he wins
+    wins[1] += 1
+} else if (playerWon == 0) { //it's a draw
+        wins[2] += 1
+        } 
+
 }
 
 function play() {
@@ -88,10 +90,6 @@ function play() {
     break
     }
     }
-
-    //Restart the game
-    wins = [0, 0, 0] // Player, Computer, Draws
-    playerWon = 0
 
     }
 
